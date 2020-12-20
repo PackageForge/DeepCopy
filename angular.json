@@ -122,6 +122,46 @@
           }
         }
       }
+    },
+    "deep-copy": {
+      "projectType": "library",
+      "root": "projects/deep-copy",
+      "sourceRoot": "projects/deep-copy/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/deep-copy/tsconfig.lib.json",
+            "project": "projects/deep-copy/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/deep-copy/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/deep-copy/src/test.ts",
+            "tsConfig": "projects/deep-copy/tsconfig.spec.json",
+            "karmaConfig": "projects/deep-copy/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/deep-copy/tsconfig.lib.json",
+              "projects/deep-copy/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "DeepCopy"
